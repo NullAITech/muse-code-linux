@@ -1,0 +1,28 @@
+name: build-appimage
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1"   # weekly: catch new Muse Code releases
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends file desktop-file-utils
+      - name: Validate desktop file
+        run: desktop-file-validate packaging/muse-code.desktop
+      - name: Build AppImage (fetches + sha256-verifies Meta's binary)
+        run: ./build-appimage.sh
+      - name: Check --version
+        run: |
+          out="$(./Muse-Code-x86_64.AppImage --version)"
+          echo "$out"
+          echo "$out" | grep -E '^Muse Code [0-9]+\.[0-9]+\.[0-9]+'
+      # The AppImage is intentionally NOT uploaded as an artifact or release:
+      # Muse Code is Meta's proprietary binary and is not redistributed here.

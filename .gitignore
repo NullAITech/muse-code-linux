@@ -1,0 +1,7 @@
+*.AppImage
+build/
+muse
+muse-x86-linux
+muse-*-linux
+*.part
+AppDir/

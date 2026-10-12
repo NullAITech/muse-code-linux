@@ -1,0 +1,15 @@
+#!/bin/bash
+# Run muse directly in a terminal; when launched from a desktop menu (no TTY,
+# no args) open it in Konsole or the system terminal instead.
+HERE="$(dirname "$(readlink -f "$0")")"
+MUSE="$HERE/usr/bin/muse"
+if [ -t 0 ] || [ -t 1 ] || [ "$#" -gt 0 ]; then
+  exec "$MUSE" "$@"
+fi
+if command -v konsole >/dev/null 2>&1; then
+  exec konsole -e "$MUSE"
+elif command -v x-terminal-emulator >/dev/null 2>&1; then
+  exec x-terminal-emulator -e "$MUSE"
+else
+  exec "$MUSE"
+fi

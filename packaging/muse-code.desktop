@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Muse Code
+GenericName=AI coding agent
+Comment=Muse Code CLI (unofficial AppImage packaging)
+Exec=muse
+Icon=muse-code
+Terminal=true
+Categories=Development;
+Keywords=muse;ai;agent;cli;
