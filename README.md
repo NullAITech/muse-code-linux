@@ -14,7 +14,7 @@ Tested on **ZOTHOS** (KDE Plasma).
 ## Quickstart
 
 ```bash
-git clone https://github.com/<you>/muse-code-linux.git
+git clone https://github.com/NullAITech/muse-code-linux.git
 cd muse-code-linux
 ./build-appimage.sh                      # needs curl, python3, sha256sum
 ./Muse-Code-x86_64.AppImage --version    # -> Muse Code 1.4.6 (1.4.6-R6000.1)
