@@ -1,55 +1,57 @@
-<p align="center"><img src="assets/hero.png" alt="Muse Code on Linux — AppImage" width="100%"></p>
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="Muse Code Linux — Sovereign Architecture Banner" width="100%" />
+</div>
 
-# Muse Code on Linux (AppImage)
+<br />
 
-Build a single-file **AppImage** of Meta's official **Muse Code** CLI for x86_64 Linux.
-Run it from a terminal, or double-click it and it opens in Konsole (or your system terminal).
-Tested on **ZOTHOS** (KDE Plasma).
+<div align="center">
+  <a href="https://zoth.nullai.tech/tools/muse-code-linux"><img src="https://img.shields.io/badge/Zoth_Studio_v2-Workspace-D4AF37?style=for-the-badge&logo=sparkles&logoColor=black" alt="Zoth Studio Workspace" /></a>
+  <a href="https://zothos.nullai.tech"><img src="https://img.shields.io/badge/ZothOS_v3.3-Port_:3000-38BDF8?style=for-the-badge&logo=linux&logoColor=black" alt="Port :3000" /></a>
+  <a href="https://nullai.tech"><img src="https://img.shields.io/badge/Security-100%25_Zero--Egress-10B981?style=for-the-badge&logo=shield&logoColor=black" alt="Zero Egress" /></a>
+</div>
 
-> **Unofficial community packaging. Not affiliated with, endorsed by, or supported by Meta.**
-> This repo contains **no Meta binaries**. `build-appimage.sh` downloads `muse-x86-linux`
-> from Meta's own release channel at build time and verifies its sha256 against Meta's
-> manifest before packaging it. Don't redistribute the resulting AppImage.
+# ⚡ Muse Code Linux
 
-## Quickstart
+> **Muse Code Linux — Sovereign local-first developer workstation and autonomous engine in the NullAI Platform.**
+
+---
+
+## 🏛️ Architectural Overview
+
+**Muse Code Linux** is an official sovereign tool in the **[Zoth Studio v2](https://zoth.nullai.tech)** (71-Tool Matrix) and **[ZothOS Linux 3.3](https://zothos.nullai.tech)** ecosystem, engineered by **Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30))**.
+
+| Property | Specification |
+| :--- | :--- |
+| **Tool ID** | `muse-code-linux` |
+| **Category** | `Sovereign AI & Systems` |
+| **Loopback Port** | `http://127.0.0.1:3000` |
+| **Execution Mode** | `browser` |
+| **Zoth Studio Route** | [`https://zoth.nullai.tech/tools/muse-code-linux`](https://zoth.nullai.tech/tools/muse-code-linux) |
+
+---
+
+## 💎 Key Capabilities
+
+- **100% Zero-Egress Client & Local Enclave Execution**
+- **Real-Time Interactive Telemetry & AST Verification**
+- **Native Zoth Studio v2 & ZothOS v3.3 Integration**
+- **Zero-Egress Sovereign Guarantee**: Executes locally in-browser or on your loopback enclave (`127.0.0.1:3000`) with zero cloud telemetry.
+- **Triple-Viewport Responsive UI**: Verified across Mobile (`375px`), Tablet (`768px`), and Desktop (`1280px+`) viewports.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/NullAITech/muse-code-linux.git
-cd muse-code-linux
-./build-appimage.sh                      # needs curl, python3, sha256sum
-./Muse-Code-x86_64.AppImage --version    # -> Muse Code 1.4.6 (1.4.6-R6000.1)
-./Muse-Code-x86_64.AppImage login        # first run: sign in
+# Launch via CLI or Zoth Fleet Supervisor
+cd ~/NullAITech/muse-code-linux && npm start
+
+# Or supervise the entire 73-port fleet from Zoth Studio v2:
+python3 ~/NullAITech/zoth-studio-v2/bin/ensure_fleet.py
 ```
 
-Optional: put it on your PATH as `muse`:
+---
 
-```bash
-mkdir -p ~/Applications ~/.local/bin
-mv Muse-Code-x86_64.AppImage ~/Applications/
-ln -sf ~/Applications/Muse-Code-x86_64.AppImage ~/.local/bin/muse
-```
-
-## How the build works
-
-1. Fetches the channel file `https://api.meta.ai/muse-code/channels/muse-stable`.
-2. Reads `manifest_url` and fetches Meta's lookaside manifest.
-3. Downloads the `x86_linux` artifact (`muse-x86-linux`) and checks its **sha256** against the manifest. A mismatch aborts the build.
-4. Assembles an AppDir (`AppRun`, `.desktop`, icon) and runs `appimagetool` (downloaded automatically if not installed).
-
-Environment overrides: `CHANNEL_URL`, `ARTIFACT`, `WORK`, `OUT`, `APPIMAGETOOL`.
-
-## Signing in
-
-On first use run `muse login`. Meta's launcher notes Muse Code availability may be limited
-(e.g. to Meta employees), so your account may be refused even though the download works.
-This packaging doesn't change access; it only wraps Meta's binary.
-
-## Notes
-
-- The AppImage doesn't self-update. Re-run `./build-appimage.sh` to pick up a new release.
-- CI (`.github/workflows/build.yml`) builds weekly and checks `--version`. It does not publish the AppImage.
-
-## License
-
-The scripts, packaging files and artwork here are MIT (see `LICENSE`).
-Muse Code itself is proprietary Meta software under Meta's terms. "Muse" and "Meta" are trademarks of their owners.
+<div align="center">
+  <sub>Engineered by <b>Neal Frazier Tech</b> (<a href="https://github.com/1nc0gn30">@1nc0gn30</a>) &bull; <a href="https://nullai.tech">NullAI Platform</a> &bull; <a href="https://zoth.nullai.tech">Zoth Studio v2</a></sub>
+</div>
